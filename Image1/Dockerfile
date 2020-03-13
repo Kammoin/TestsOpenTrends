@@ -1,0 +1,6 @@
+FROM openjdk
+
+VOLUME /tmp
+ADD repository-service-0.0.1-SNAPSHOT.jar myapp.jar
+RUN sh -c 'touch /myapp.jar'
+ENTRYPOINT ["java","-Dspring.profiles.active=loc","-jar","/myapp.jar"]

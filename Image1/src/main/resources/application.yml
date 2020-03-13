@@ -1,0 +1,58 @@
+
+#################################
+# ===============================
+# = LOC # = 
+# ===============================
+spring:
+  profiles: loc
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:AC
+    username: sa
+    password:
+    continue-on-error: false 
+    platform: h2
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      
+server:
+    port: 9081
+    servlet:
+      context-path: /test1
+   
+      
+#Start GitLab properties
+gitlab:
+  url: gitlab.localhost.com:9090
+  private_token: YOUR_PRIVATE_TOKEN  #I could encrypt the token(e.g., with Jasyp) but I don't think it is the purpose of the test
+#End GitLab properties
+    
+---
+#################################
+# ===============================
+# = PRE # = 
+# ===============================
+spring:
+  profiles: pre
+server:
+    port: 9081
+    servlet:
+      context-path:
+      
+#Not further defined because it is not int the scope of the test.
+
+---
+#################################
+# ===============================
+# = PRO # = 
+# ===============================
+spring:
+  profiles: pro
+server:
+    port: 9081
+    servlet:
+      context-path:
+      
+#Not further defined because it is not int the scope of the test.
