@@ -1,0 +1,57 @@
+
+#################################
+# ===============================
+# = LOC # = 
+# ===============================
+spring:
+  profiles: loc
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:AC
+    username: sa
+    password:
+    continue-on-error: false 
+    platform: h2
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+server:
+    port: 9082
+    servlet:
+      context-path: /test2
+      
+#Start Jenkins properties
+jenkins:
+  url: jenkins.localhost.com
+  user: foo
+  password: pass #not encrypted
+#End Jenkins properties
+    
+---
+#################################
+# ===============================
+# = PRE # = 
+# ===============================
+spring:
+  profiles: pre
+server:
+    port: 9082
+    servlet:
+      context-path:
+      
+#Not further defined because it is not int the scope of the test.
+
+---
+#################################
+# ===============================
+# = PRO # = 
+# ===============================
+spring:
+  profiles: pro
+server:
+    port: 9082
+    servlet:
+      context-path:
+      
+#Not further defined because it is not int the scope of the test.
